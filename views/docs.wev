@@ -1,0 +1,45 @@
+extend "layout.wev"
+
+section content {
+<section class="page-intro">
+  <p class="eyebrow">Documentation</p>
+  <h1>Get from install to running app quickly.</h1>
+  <p class="hero-lead">These are the core paths new developers need first: install the runtime, generate a starter, understand the request flow, and ship with the built-in production commands.</p>
+</section>
+
+<section class="stack-list">
+  {% for section in docs_sections %}
+  <article class="stack-card">
+    <p class="card-label">{{ section.tag }}</p>
+    <h2>{{ section.title }}</h2>
+    <p>{{ section.intro }}</p>
+    <ul class="detail-list">
+      {% for point in section.points %}
+      <li>{{ point }}</li>
+      {% end %}
+    </ul>
+  </article>
+  {% end %}
+</section>
+
+<section class="section-frame split-panel">
+  <article class="content-card">
+    <h2>Core docs in this repository</h2>
+    <p>The public website is the front door. The deeper technical material already lives in the repository and should stay part of the official learning path.</p>
+    <ul class="detail-list">
+      <li><a href="{{ site.repo_url }}/blob/main/docs/quickstart.md">Quick Start</a></li>
+      <li><a href="{{ site.repo_url }}/blob/main/docs/framework-overview.md">Framework Overview</a></li>
+      <li><a href="{{ site.repo_url }}/blob/main/docs/language-reference.md">Language Reference</a></li>
+      <li><a href="{{ site.repo_url }}/blob/main/docs/internal-platform-reference.md">Internal Platform Reference</a></li>
+    </ul>
+  </article>
+
+  <article class="content-card accent-card">
+    <h2>Start with the dashboard starter</h2>
+    <p>The official dashboard starter is the fastest way to experience packages, auth, templates, and CRUD flows together.</p>
+    <pre><code>wevoa create dashboard app
+cd app
+wevoa start</code></pre>
+  </article>
+</section>
+}

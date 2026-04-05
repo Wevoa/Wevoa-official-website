@@ -1,0 +1,96 @@
+extend "layout.wev"
+
+section content {
+<section class="page-intro">
+  <p class="eyebrow">Download</p>
+  <h1>Download WevoaWeb Runtime {{ site.version }}</h1>
+  <p class="hero-lead">Download the official Wevoa runtime directly from this website. Windows users can install with the GUI setup, and Linux users can download the runtime binary and start immediately.</p>
+  <div class="hero-actions">
+    <a class="primary-button button-with-icon" href="{{ download_targets[0].href }}" download="{{ download_targets[0].download_name }}">
+      <img src="{{ download_targets[0].icon }}" alt="Windows icon" class="button-icon">
+      <span>Download for Windows</span>
+    </a>
+    <a class="secondary-button button-with-icon" href="{{ download_targets[2].href }}" download="{{ download_targets[2].download_name }}">
+      <img src="{{ download_targets[2].icon }}" alt="Linux icon" class="button-icon">
+      <span>Download for Linux</span>
+    </a>
+  </div>
+</section>
+
+<section class="release-band">
+  <article class="release-chip">
+    <p class="card-label">Current release</p>
+    <h2>{{ site.version }}</h2>
+    <p>Stable official runtime release</p>
+  </article>
+  <article class="release-chip">
+    <p class="card-label">Website delivery</p>
+    <h2>Direct download</h2>
+    <p>The website serves the current official release files directly from the Wevoa download path.</p>
+  </article>
+  <article class="release-chip">
+    <p class="card-label">Verification</p>
+    <h2>SHA256SUMS.txt</h2>
+    <p>Use the published checksum file before install or redistribution.</p>
+  </article>
+</section>
+
+<section class="download-grid">
+  {% for target in download_targets %}
+  <article class="download-card">
+    <div class="download-head">
+      <p class="card-label">{{ target.tag }}</p>
+      <p class="content-meta">{{ target.platform }}</p>
+    </div>
+    <h2>{{ target.version_label }}</h2>
+    <p class="download-artifact">{{ target.artifact }}</p>
+    <p class="content-meta">{{ target.artifact_type }}</p>
+    <p>{{ target.detail }}</p>
+    <p class="download-support">{{ target.support }}</p>
+    <a class="primary-button download-button button-with-icon" href="{{ target.href }}" download="{{ target.download_name }}">
+      <img src="{{ target.icon }}" alt="{{ target.platform }} icon" class="button-icon">
+      <span>{{ target.button }}</span>
+    </a>
+  </article>
+  {% end %}
+</section>
+
+<section class="stack-list">
+  {% for file in release_files %}
+  <article class="stack-card">
+    <p class="card-label">{{ file.badge }}</p>
+    <h2>{{ file.name }}</h2>
+    <p class="content-meta">{{ file.type }}</p>
+    <p>{{ file.detail }}</p>
+    <a class="button-link" href="{{ file.href }}" download="{{ file.download_name }}">Direct asset link</a>
+  </article>
+  {% end %}
+
+  {% for item in install_methods %}
+  <article class="stack-card">
+    <p class="card-label">{{ item.tag }}</p>
+    <h2>{{ item.title }}</h2>
+    <p>{{ item.note }}</p>
+    <pre><code>{{ item.command }}</code></pre>
+  </article>
+  {% end %}
+</section>
+
+<section class="section-frame split-panel">
+  <article class="content-card">
+    <h2>After download</h2>
+    <pre><code>wevoa --version
+wevoa create app my-site
+cd my-site
+wevoa start</code></pre>
+  </article>
+
+  <article class="content-card">
+    <h2>Verify official assets</h2>
+    <p>Release verification matters. Use the published checksum file before installation or redistribution.</p>
+    <pre><code>Get-FileHash .\WevoaSetup.exe -Algorithm SHA256
+Get-FileHash .\wevoa.exe -Algorithm SHA256
+sha256sum ./wevoa</code></pre>
+  </article>
+</section>
+}

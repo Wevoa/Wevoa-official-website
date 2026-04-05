@@ -1,0 +1,21 @@
+<header class="site-header">
+  <div class="header-shell">
+    <a class="brand-mark" href="/">
+      <img src="/Web.png" alt="WevoaWeb logo">
+      <div class="brand-copy">
+        <strong>{{ site.name }}</strong>
+        <span>Runtime v{{ site.version }}</span>
+      </div>
+    </a>
+
+    <nav class="top-nav">
+      {% for item in navigation %}
+      <a href="{{ item.href }}" class="{% if current_path == item.href %}nav-link nav-link-active{% else %}nav-link{% end %}">
+        {{ item.label }}
+      </a>
+      {% end %}
+    </nav>
+
+    <a class="header-cta" href="{{ site.release_url }}">Official Releases</a>
+  </div>
+</header>

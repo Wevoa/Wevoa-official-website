@@ -1,0 +1,36 @@
+extend "layout.wev"
+
+section content {
+<section class="page-intro">
+  <p class="eyebrow">About</p>
+  <h1>Wevoa exists to make the full web stack feel smaller and more coherent.</h1>
+  <p class="hero-lead">The project combines a language, runtime, framework, package flow, and CLI because that lets the platform make stronger promises about how the pieces fit together.</p>
+</section>
+
+<section class="card-grid">
+  {% for value in values %}
+  <article class="content-card">
+    <p class="card-label">{{ value.tag }}</p>
+    <h2>{{ value.title }}</h2>
+    <p>{{ value.text }}</p>
+  </article>
+  {% end %}
+</section>
+
+<section class="section-frame split-panel">
+  <article class="content-card">
+    <h2>What makes Wevoa different</h2>
+    <ul class="detail-list">
+      <li>Language and framework are designed together</li>
+      <li>CLI, runtime, templates, routing, and build flow live in one system</li>
+      <li>HTML-first development is the normal path, not the fallback path</li>
+      <li>Windows installer and official distribution are part of the platform story</li>
+    </ul>
+  </article>
+
+  <article class="content-card">
+    <h2>Current direction</h2>
+    <p>Wevoa is already usable today for server-rendered products, dashboards, internal tools, and framework experimentation. The next stage is strengthening the ecosystem, security, docs, and adoption story around the core runtime.</p>
+  </article>
+</section>
+}

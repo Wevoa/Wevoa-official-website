@@ -1,0 +1,18 @@
+<footer class="site-footer">
+  <div class="footer-shell">
+    <div class="footer-brand">
+      <p class="footer-title">{{ site.name }}</p>
+      <p class="footer-copy">{{ site.tagline }}</p>
+    </div>
+    <div class="footer-links">
+      <a href="{{ site.repo_url }}">Source</a>
+      <a href="{{ site.release_url }}">Releases</a>
+      <a href="/docs">Docs</a>
+      <a href="/download">Download</a>
+    </div>
+    <div class="footer-meta">
+      <p class="footer-version">Runtime v{{ site.version }}</p>
+      <p class="footer-note">Official binaries only from GitHub Releases.</p>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,333 @@
+const site = {
+  name: "WevoaWeb",
+  title: "WevoaWeb Official Website",
+  tagline: "Server-first language, runtime, and web framework built in modern C++.",
+  version: "786.0.0",
+  release_tag: "v786.0.0",
+  repo_url: "https://github.com/Wevoa/Wevoa",
+  release_url: "https://github.com/Wevoa/Wevoa/releases",
+  docs_url: "/docs"
+}
+
+const website_asset_base = "/downloads/"
+
+const navigation = [
+  { label: "Home", href: "/" },
+  { label: "Docs", href: "/docs" },
+  { label: "Download", href: "/download" },
+  { label: "Ecosystem", href: "/ecosystem" },
+  { label: "About", href: "/about" }
+]
+
+const platform_stats = [
+  { value: "1", label: "Single runtime", stamp: "System", text: "Language, CLI, HTTP server, templates, and build flow ship together." },
+  { value: "786", label: "Default port", stamp: "Local", text: "A recognizable local development port that works across starters and docs." },
+  { value: "0 JS", label: "Required by default", stamp: "Core", text: "The normal request cycle stays server-rendered and HTML-first." }
+]
+
+const home_capabilities = [
+  { title: "Language + runtime", tag: "Execution", text: "Custom syntax, closures, imports, arrays, objects, template blocks, and route execution live in one binary." },
+  { title: "Full web stack", tag: "Framework", text: "Routing, sessions, CSRF, JSON helpers, multipart uploads, static assets, and SQLite are built into the platform." },
+  { title: "Developer tooling", tag: "CLI", text: "Project creation, doctor, build, serve, package management, and installer-ready distribution come from the same CLI." },
+  { title: "Production-oriented", tag: "Runtime", text: "Worker pool, bounded queue, runtime snapshots, compiled templates, and safer defaults are already part of the core." }
+]
+
+const docs_sections = [
+  {
+    title: "Get started",
+    tag: "01",
+    intro: "Use the installer or runtime binary, then create and run a starter project immediately.",
+    points: [
+      "wevoa --version",
+      "wevoa create dashboard app",
+      "cd app",
+      "wevoa start"
+    ]
+  },
+  {
+    title: "Build pages with Wevoa",
+    tag: "02",
+    intro: "Each request runs through routes, templates, and structured helpers without requiring frontend JavaScript.",
+    points: [
+      "route \"/\" { return view(\"home.wev\", data) }",
+      "{{ expression }} interpolation",
+      "extend, section, include, and component support",
+      "request, session, params, and json() helpers"
+    ]
+  },
+  {
+    title: "Ship safely",
+    tag: "03",
+    intro: "Production support is part of the runtime, not bolted on in another tool.",
+    points: [
+      "wevoa build",
+      "wevoa serve",
+      "wevoa doctor",
+      "SHA256 release verification"
+    ]
+  }
+]
+
+const download_targets = [
+  {
+    platform: "Windows",
+    tag: "Recommended",
+    version_label: "WevoaWeb Runtime " + site.version,
+    artifact: "WevoaSetup.exe",
+    artifact_type: "GUI installer",
+    detail: "Best for most developers. Installs Wevoa globally, adds it to PATH, and gives a clean setup flow.",
+    href: website_asset_base + "WevoaSetup.exe",
+    button: "Download for Windows",
+    support: "Installer-first setup like a real platform runtime",
+    icon: "/windows-mark.svg",
+    download_name: "WevoaSetup.exe"
+  },
+  {
+    platform: "Windows",
+    tag: "Portable",
+    version_label: "WevoaWeb Runtime " + site.version,
+    artifact: "wevoa.exe",
+    artifact_type: "Raw runtime binary",
+    detail: "Useful for CI, direct runtime testing, or advanced manual setups where you want the standalone executable.",
+    href: website_asset_base + "wevoa.exe",
+    button: "Download wevoa.exe",
+    support: "Works well for scripting, automation, and direct local use",
+    icon: "/windows-mark.svg",
+    download_name: "wevoa.exe"
+  },
+  {
+    platform: "Linux",
+    tag: "CLI runtime",
+    version_label: "WevoaWeb Runtime " + site.version,
+    artifact: "wevoa",
+    artifact_type: "Linux runtime binary",
+    detail: "The Linux build ships as the direct Wevoa runtime binary. Download it, mark it executable, and run it immediately.",
+    href: website_asset_base + "wevoa",
+    button: "Download for Linux",
+    support: "Built for shell-first installs and server environments",
+    icon: "/linux-mark.svg",
+    download_name: "wevoa"
+  }
+]
+
+const release_files = [
+  { name: "WevoaSetup.exe", type: "Windows installer", badge: "Installer", detail: "Official guided installation flow for Windows systems.", href: website_asset_base + "WevoaSetup.exe", download_name: "WevoaSetup.exe" },
+  { name: "wevoa.exe", type: "Windows runtime", badge: "Binary", detail: "Portable Windows runtime executable for direct use.", href: website_asset_base + "wevoa.exe", download_name: "wevoa.exe" },
+  { name: "wevoa", type: "Linux runtime", badge: "Binary", detail: "Portable Linux runtime binary for direct shell usage.", href: website_asset_base + "wevoa", download_name: "wevoa" },
+  { name: "SHA256SUMS.txt", type: "Release verification", badge: "Trust", detail: "Verify downloads before installation or redistribution.", href: website_asset_base + "SHA256SUMS.txt", download_name: "SHA256SUMS.txt" }
+]
+
+const install_methods = [
+  {
+    title: "Windows installer",
+    tag: "Windows",
+    command: "Download WevoaSetup.exe and run the setup wizard.",
+    note: "Recommended for most users. The installer copies Wevoa, configures PATH, and gives you a ready-to-use CLI."
+  },
+  {
+    title: "Windows portable",
+    tag: "Runtime",
+    command: "Download wevoa.exe and place it in a trusted tools folder.",
+    note: "Best when you want direct control over where the runtime lives or when using Wevoa in CI."
+  },
+  {
+    title: "Linux runtime",
+    tag: "Linux",
+    command: "chmod +x ./wevoa\n./wevoa --version",
+    note: "Download the Linux binary, mark it executable, and run it directly from your shell."
+  }
+]
+
+const ecosystem_tracks = [
+  {
+    title: "Official packages",
+    tag: "Packages",
+    text: "Core packages such as @auth, @db, and @utils give projects a reliable starting point without making the framework feel bloated.",
+    items: [
+      "@auth for session-backed authentication",
+      "@db for database helpers and query wrappers",
+      "@utils for response and helper functions"
+    ]
+  },
+  {
+    title: "Starter packs",
+    tag: "Starters",
+    text: "Wevoa ships with focused built-in starters instead of a cluttered example zoo.",
+    items: [
+      "app for a minimal production-grade starting point",
+      "dashboard for an auth + CRUD starter built with official packages"
+    ]
+  },
+  {
+    title: "Product ecosystem",
+    tag: "Platform",
+    text: "The runtime, installer, packages, docs, and starters are designed to feel like one platform instead of separate tooling islands.",
+    items: [
+      "Single-binary runtime distribution",
+      "Installer-first onboarding on Windows",
+      "Package discovery and official registry flow"
+    ]
+  }
+]
+
+const about_values = [
+  { title: "Server-first by default", tag: "Philosophy", text: "The normal path favors HTML, routes, and predictable request handling instead of pushing every app toward client-heavy complexity." },
+  { title: "Framework and language together", tag: "Identity", text: "Wevoa is not only a framework. It is a language, runtime, CLI, and web platform designed to feel coherent end to end." },
+  { title: "Small surface, real capability", tag: "Direction", text: "The goal is not to mimic every existing stack. The goal is to provide a simpler stack that still handles real production needs." }
+]
+
+const founder_login = "AHADBAVA"
+
+func github_headers() {
+  return {
+    "Accept": "application/vnd.github+json",
+    "User-Agent": site.name + "/" + site.version
+  }
+}
+
+func github_user(login) {
+  let response = http.get("https://api.github.com/users/" + login, github_headers())
+  if (!response.ok || !response.json_valid) {
+    return {}
+  }
+  return response.json()
+}
+
+func commit_label(commits) {
+  if (commits == 1) {
+    return commits + " commit"
+  }
+  return commits + " commits"
+}
+
+func contributor_card(display_name, profile, role, rank, commits, summary, note) {
+  return {
+    name: display_name,
+    handle: "@" + profile.login,
+    role: role,
+    rank: "#" + rank,
+    commits: commits,
+    commits_label: commit_label(commits),
+    summary: summary,
+    profile_url: profile.html_url,
+    avatar_url: profile.avatar_url,
+    contribution_note: note
+  }
+}
+
+func github_contributors() {
+  let response = http.get("https://api.github.com/repos/Wevoa/Wevoa/contributors", github_headers())
+  let founder_profile = github_user(founder_login)
+
+  let contributors = []
+  let others = []
+  let founder_repo = {}
+  let index = 0
+
+  if (response.ok && response.json_valid) {
+    let payload = response.json()
+
+    while (index < len(payload)) {
+      let contributor = payload[index]
+
+      if (contributor.login == founder_login) {
+        founder_repo = contributor
+      } else {
+        others = append(others, contributor)
+      }
+
+      index = index + 1
+    }
+  }
+
+  let founder_source = founder_profile
+  if (!founder_source.login && founder_repo.login) {
+    founder_source = founder_repo
+  }
+
+  if (founder_source.login) {
+    let founder_commits = 0
+    let founder_name = founder_source.login
+    if (founder_repo.login) {
+      founder_commits = founder_repo.contributions
+    }
+    if (founder_profile.login && founder_profile.name) {
+      founder_name = founder_profile.name
+    }
+
+    contributors = append(contributors, contributor_card(founder_name, founder_source, "Founder", 1, founder_commits, "Pinned at the top of the official contributor board. Founder details are loaded live from GitHub, and everyone else is ranked below by repo commit count.", "Live GitHub data with founder priority enabled"))
+  }
+
+  let other_index = 0
+  let rank = 2
+
+  while (other_index < len(others)) {
+    let contributor = others[other_index]
+
+    contributors = append(contributors, contributor_card(contributor.login, contributor, "Contributor", rank, contributor.contributions, "Ranked live from the Wevoa repository contributors list by public commit count.", "Fetched live from github.com/Wevoa/Wevoa"))
+
+    rank = rank + 1
+    other_index = other_index + 1
+  }
+
+  return contributors
+}
+
+route "/" {
+return view("home.wev", {
+  title: "WevoaWeb | Official Website",
+  description: "The official home of WevoaWeb, a server-first language, runtime, and web framework built in modern C++.",
+  site: site,
+  navigation: navigation,
+  current_path: request.path,
+  platform_stats: platform_stats,
+  capabilities: home_capabilities,
+  contributors: github_contributors()
+})
+}
+
+route "/docs" {
+return view("docs.wev", {
+  title: "WevoaWeb | Documentation",
+  description: "Start with WevoaWeb quickly and understand the platform from CLI to runtime.",
+  site: site,
+  navigation: navigation,
+  current_path: request.path,
+  docs_sections: docs_sections
+})
+}
+
+route "/download" {
+return view("download.wev", {
+  title: "WevoaWeb | Download",
+  description: "Download the official WevoaWeb runtime and installer from the trusted release channel.",
+  site: site,
+  navigation: navigation,
+  current_path: request.path,
+  download_targets: download_targets,
+  release_files: release_files,
+  install_methods: install_methods
+})
+}
+
+route "/ecosystem" {
+return view("ecosystem.wev", {
+  title: "WevoaWeb | Ecosystem",
+  description: "See the official packages, starter packs, and distribution model behind the Wevoa platform.",
+  site: site,
+  navigation: navigation,
+  current_path: request.path,
+  ecosystem_tracks: ecosystem_tracks
+})
+}
+
+route "/about" {
+return view("about.wev", {
+  title: "WevoaWeb | About",
+  description: "Learn what WevoaWeb is, why it exists, and what principles guide the platform.",
+  site: site,
+  navigation: navigation,
+  current_path: request.path,
+  values: about_values
+})
+}

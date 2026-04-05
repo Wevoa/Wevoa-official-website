@@ -1,0 +1,35 @@
+extend "layout.wev"
+
+section content {
+<section class="page-intro">
+  <p class="eyebrow">Ecosystem</p>
+  <h1>A framework is stronger when the surrounding platform is coherent.</h1>
+  <p class="hero-lead">Wevoa's ecosystem is intentionally focused: official starter packs, official packages, installer-first distribution, and documentation that matches the actual runtime.</p>
+</section>
+
+<section class="stack-list">
+  {% for track in ecosystem_tracks %}
+  <article class="stack-card">
+    <p class="card-label">{{ track.tag }}</p>
+    <h2>{{ track.title }}</h2>
+    <p>{{ track.text }}</p>
+    <ul class="detail-list">
+      {% for item in track.items %}
+      <li>{{ item }}</li>
+      {% end %}
+    </ul>
+  </article>
+  {% end %}
+</section>
+
+<section class="section-frame split-panel">
+  <article class="content-card accent-card">
+    <h2>Official packages</h2>
+    <p>@auth, @db, and @utils give projects a solid baseline without forcing a huge dependency tree.</p>
+  </article>
+  <article class="content-card accent-card">
+    <h2>Official starters</h2>
+    <p>The built-in `app` and `dashboard` starters replace scattered demos with a cleaner onboarding path.</p>
+  </article>
+</section>
+}

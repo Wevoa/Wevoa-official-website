@@ -1,0 +1,129 @@
+extend "layout.wev"
+
+section content {
+<section class="hero-frame">
+  <div class="hero-banner">
+    <p class="eyebrow">Official website</p>
+    <p class="signal-pill">Runtime {{ site.version }}</p>
+  </div>
+
+  <div class="hero-panel">
+    <div class="hero-copy">
+      <p class="hero-overline">One language. One runtime. One server-first path.</p>
+      <h1>Wevoa is the web stack when the language and framework are built as one system.</h1>
+      <p class="hero-lead">
+        WevoaWeb combines a custom language, runtime, template engine, HTTP server, CLI, starter packs, and package system into one installable platform built in modern C++. The website should feel like that same idea: direct, technical, and unmistakably its own.
+      </p>
+      <div class="hero-actions">
+        <a class="primary-button" href="/download">Download Wevoa</a>
+        <a class="secondary-button" href="/docs">Read the docs</a>
+      </div>
+    </div>
+
+    <aside class="hero-system">
+      <div class="system-card system-card-primary">
+        <span class="hero-code-title">Boot sequence</span>
+        <pre><code>wevoa --version
+wevoa create dashboard app
+cd app
+wevoa start</code></pre>
+      </div>
+
+      <div class="system-card system-card-secondary">
+        <p class="card-label">Wevoa style</p>
+        <h2>Built for people who want the stack to feel smaller.</h2>
+        <ul class="check-list">
+          <li>HTML-first flow without mandatory frontend JavaScript</li>
+          <li>Framework, CLI, and runtime designed as one platform</li>
+          <li>Installer, packages, and docs treated as product surface</li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+
+  <div class="signal-ribbon">
+    {% for stat in platform_stats %}
+    <article class="signal-card">
+      <p class="signal-stamp">{{ stat.stamp }}</p>
+      <p class="signal-value">{{ stat.value }}</p>
+      <h3>{{ stat.label }}</h3>
+      <p>{{ stat.text }}</p>
+    </article>
+    {% end %}
+  </div>
+</section>
+
+<section class="section-frame">
+  <div class="section-heading">
+    <p class="eyebrow">Contributors</p>
+    <h2>People shaping Wevoa in the open</h2>
+    <p>The official site is rendered by Wevoa itself, and this contributor board is fetched live from GitHub on the server side with no client-side JavaScript. The founder stays pinned at #1, and the rest are ranked dynamically by repo commits.</p>
+  </div>
+
+  {% if len(contributors) > 0 %}
+  <div class="contributors-grid">
+    {% for contributor in contributors %}
+    <article class="contributor-card">
+      <img src="{{ contributor.avatar_url }}" alt="{{ contributor.name }} avatar" class="contributor-avatar">
+      <div class="contributor-copy">
+        <div class="contributor-meta">
+          <p class="card-label">{{ contributor.role }}</p>
+          <p class="contributor-rank">{{ contributor.rank }}</p>
+        </div>
+        <h3>{{ contributor.name }}</h3>
+        <p class="contributor-handle">{{ contributor.handle }}</p>
+        <p class="contributor-commits">{{ contributor.commits_label }}</p>
+        <p>{{ contributor.summary }}</p>
+        <p class="contributor-note">{{ contributor.contribution_note }}</p>
+        <a class="button-link" href="{{ contributor.profile_url }}">View GitHub profile</a>
+      </div>
+    </article>
+    {% end %}
+  </div>
+  {% else %}
+  <div class="content-card">
+    <p class="card-label">Live data unavailable</p>
+    <h3>Contributor data could not be loaded right now.</h3>
+    <p>The site is trying to fetch the official Wevoa contributor list live from GitHub. If GitHub is temporarily unavailable or rate limited, this section will recover automatically on the next request.</p>
+  </div>
+  {% end %}
+</section>
+
+<section class="section-frame">
+  <div class="section-heading">
+    <p class="eyebrow">Capability map</p>
+    <h2>What the platform already does well</h2>
+    <p>Wevoa is already a working runtime and framework with routes, templates, package support, build flows, and production-minded behavior. The design language should communicate that confidence instead of hiding it behind generic SaaS patterns.</p>
+  </div>
+
+  <div class="manifest-grid">
+    {% for capability in capabilities %}
+    <article class="manifest-card">
+      <p class="manifest-tag">{{ capability.tag }}</p>
+      <h3>{{ capability.title }}</h3>
+      <p>{{ capability.text }}</p>
+    </article>
+    {% end %}
+  </div>
+</section>
+
+<section class="section-frame showcase-frame">
+  <div class="section-heading">
+    <p class="eyebrow">Built with Wevoa</p>
+    <h2>The official site is a Wevoa app too.</h2>
+    <p>This website uses Wevoa routes, layouts, view rendering, and static file serving so the product can demonstrate itself through a real project instead of only screenshots and promises.</p>
+  </div>
+
+  <div class="showcase-body">
+    <div class="visual-card">
+      <img src="/runtime-flow.svg" alt="Wevoa runtime flow diagram">
+    </div>
+    <article class="showcase-note">
+      <p class="card-label">Runtime diagram</p>
+      <h3>Request to HTML with one internal pipeline.</h3>
+      <p>The request enters the HTTP layer, flows through the interpreter and routes, renders through the template engine, and returns HTML or structured responses from the same runtime.</p>
+      <a class="button-link" href="/docs">Explore the docs</a>
+    </article>
+  </div>
+</section>
+}

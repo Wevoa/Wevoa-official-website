@@ -1,0 +1,10 @@
+{
+  "name": "WevoaWeb Official Website",
+  "port": 786,
+  "env": "dev",
+  "database": {
+    "path": "storage/app.sqlite"
+  },
+  "packages": [],
+  "open_browser": true
+}
