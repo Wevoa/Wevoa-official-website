@@ -43,185 +43,232 @@
       
     </nav>
 
-    <a class="header-cta" href="https://github.com/Wevoa/Wevoa/releases">Official Releases</a>
+    <a class="header-cta" href="https://github.com/Wevoa/Wevoa">GitHub</a>
   </div>
 </header>
 
   <main class="page-shell">
-    <section class="hero-frame">
-  <div class="hero-banner">
-    <p class="eyebrow">Official website</p>
-    <p class="signal-pill">Runtime 786.0.0</p>
-  </div>
-
-  <div class="hero-panel">
-    <div class="hero-copy">
-      <p class="hero-overline">One language. One runtime. One server-first path.</p>
-      <h1>Wevoa is the web stack when the language and framework are built as one system.</h1>
+    <section class="hero-frame hero-home">
+  <div class="hero-layout">
+    <div class="hero-content">
+      <p class="eyebrow">WevoaWeb Runtime 786.0.0</p>
+      <h1>Build web apps with one language, one runtime, and one clear server-first model.</h1>
       <p class="hero-lead">
-        WevoaWeb combines a custom language, runtime, template engine, HTTP server, CLI, starter packs, and package system into one installable platform built in modern C++. The website should feel like that same idea: direct, technical, and unmistakably its own.
+        Wevoa brings together a custom language, templates, routing, packages, and CLI tooling into one installable platform for HTML-first products. It is built for teams that want the stack to feel smaller, clearer, and easier to ship.
       </p>
       <div class="hero-actions">
         <a class="primary-button" href="/download">Download Wevoa</a>
         <a class="secondary-button" href="/docs">Read the docs</a>
       </div>
+      <div class="stat-grid">
+        
+        <article class="stat-card">
+          <p class="stat-stamp">Runtime</p>
+          <p class="stat-value">1</p>
+          <h3>single binary</h3>
+          <p>Language, templates, routing, CLI, and build flow ship together.</p>
+        </article>
+        
+        <article class="stat-card">
+          <p class="stat-stamp">Shipping</p>
+          <p class="stat-value">2</p>
+          <h3>deployment paths</h3>
+          <p>Export static sites or run the full Wevoa runtime for dynamic apps.</p>
+        </article>
+        
+        <article class="stat-card">
+          <p class="stat-stamp">Model</p>
+          <p class="stat-value">0 JS</p>
+          <h3>required by default</h3>
+          <p>The primary path stays HTML-first and server-rendered.</p>
+        </article>
+        
+      </div>
     </div>
 
-    <aside class="hero-system">
-      <div class="system-card system-card-primary">
-        <span class="hero-code-title">Boot sequence</span>
+    <aside class="hero-side">
+      <article class="terminal-card">
+        <p class="card-label">Quick start</p>
         <pre><code>wevoa --version
 wevoa create dashboard app
 cd app
 wevoa start</code></pre>
-      </div>
+      </article>
 
-      <div class="system-card system-card-secondary">
-        <p class="card-label">Wevoa style</p>
-        <h2>Built for people who want the stack to feel smaller.</h2>
-        <ul class="check-list">
-          <li>HTML-first flow without mandatory frontend JavaScript</li>
-          <li>Framework, CLI, and runtime designed as one platform</li>
-          <li>Installer, packages, and docs treated as product surface</li>
+      <article class="content-card compact-card">
+        <p class="card-label">What Wevoa gives you</p>
+        <ul class="detail-list">
+          <li>HTML-first rendering without mandatory frontend JavaScript</li>
+          <li>Built-in routing, templates, sessions, CSRF, uploads, and SQLite</li>
+          <li>Static export for frontend sites and full runtime hosting for apps</li>
         </ul>
-      </div>
+      </article>
     </aside>
   </div>
-
-  <div class="signal-ribbon">
-    
-    <article class="signal-card">
-      <p class="signal-stamp">System</p>
-      <p class="signal-value">1</p>
-      <h3>Single runtime</h3>
-      <p>Language, CLI, HTTP server, templates, and build flow ship together.</p>
-    </article>
-    
-    <article class="signal-card">
-      <p class="signal-stamp">Local</p>
-      <p class="signal-value">786</p>
-      <h3>Default port</h3>
-      <p>A recognizable local development port that works across starters and docs.</p>
-    </article>
-    
-    <article class="signal-card">
-      <p class="signal-stamp">Core</p>
-      <p class="signal-value">0 JS</p>
-      <h3>Required by default</h3>
-      <p>The normal request cycle stays server-rendered and HTML-first.</p>
-    </article>
-    
-  </div>
 </section>
 
 <section class="section-frame">
   <div class="section-heading">
-    <p class="eyebrow">Contributors</p>
-    <h2>People shaping Wevoa in the open</h2>
-    <p>This contributor board is fetched by Wevoa itself from GitHub. The founder stays pinned at #1, and the rest are ranked dynamically by repo commits.</p>
+    <p class="eyebrow">Why Wevoa</p>
+    <h2>A smaller stack that still feels complete.</h2>
+    <p>Wevoa is designed to keep the important parts of web development together instead of scattering them across multiple tools, frameworks, and conventions.</p>
   </div>
 
-  
-  <div class="contributors-grid">
+  <div class="feature-grid">
     
-    <article class="contributor-card">
-      <img src="https://avatars.githubusercontent.com/u/139561652?v=4" alt="Abdul Ahad S avatar" class="contributor-avatar">
-      <div class="contributor-copy">
-        <div class="contributor-meta">
-          <p class="card-label">Founder</p>
-          <p class="contributor-rank">#1</p>
-        </div>
-        <h3>Abdul Ahad S</h3>
-        <p class="contributor-handle">@AHADBAVA</p>
-        <p class="contributor-commits">17 commits</p>
-        <p>Pinned at the top of the official contributor board. Founder details are loaded through Wevoa, and everyone else is ranked below by repo commit count.</p>
-        <p class="contributor-note">Fetched by Wevoa from the GitHub API</p>
-        <a class="button-link" href="https://github.com/AHADBAVA">View GitHub profile</a>
-      </div>
+    <article class="feature-card">
+      <p class="card-label">Core</p>
+      <h3>Language and runtime together</h3>
+      <p>Wevoa is designed as one system, so templates, routes, values, imports, and execution semantics fit together cleanly.</p>
     </article>
     
-    <article class="contributor-card">
-      <img src="https://avatars.githubusercontent.com/u/171639278?v=4" alt="ahmadshajhan avatar" class="contributor-avatar">
-      <div class="contributor-copy">
-        <div class="contributor-meta">
-          <p class="card-label">Contributor</p>
-          <p class="contributor-rank">#2</p>
-        </div>
-        <h3>ahmadshajhan</h3>
-        <p class="contributor-handle">@ahmadshajhan</p>
-        <p class="contributor-commits">1 commit</p>
-        <p>Ranked live from the Wevoa repository contributors list by public commit count.</p>
-        <p class="contributor-note">Fetched by Wevoa from github.com/Wevoa/Wevoa</p>
-        <a class="button-link" href="https://github.com/ahmadshajhan">View GitHub profile</a>
-      </div>
+    <article class="feature-card">
+      <p class="card-label">Framework</p>
+      <h3>Full web stack built in</h3>
+      <p>Routing, sessions, CSRF, uploads, JSON helpers, static assets, and SQLite are already part of the runtime.</p>
     </article>
     
-  </div>
-  
-</section>
-
-<section class="section-frame">
-  <div class="section-heading">
-    <p class="eyebrow">Capability map</p>
-    <h2>What the platform already does well</h2>
-    <p>Wevoa is already a working runtime and framework with routes, templates, package support, build flows, and production-minded behavior. The design language should communicate that confidence instead of hiding it behind generic SaaS patterns.</p>
-  </div>
-
-  <div class="manifest-grid">
-    
-    <article class="manifest-card">
-      <p class="manifest-tag">Execution</p>
-      <h3>Language + runtime</h3>
-      <p>Custom syntax, closures, imports, arrays, objects, template blocks, and route execution live in one binary.</p>
+    <article class="feature-card">
+      <p class="card-label">Tooling</p>
+      <h3>CLI that ships the platform</h3>
+      <p>Create, doctor, build, serve, package, and install flows all come from the same binary and the same product surface.</p>
     </article>
     
-    <article class="manifest-card">
-      <p class="manifest-tag">Framework</p>
-      <h3>Full web stack</h3>
-      <p>Routing, sessions, CSRF, JSON helpers, multipart uploads, static assets, and SQLite are built into the platform.</p>
-    </article>
-    
-    <article class="manifest-card">
-      <p class="manifest-tag">CLI</p>
-      <h3>Developer tooling</h3>
-      <p>Project creation, doctor, build, serve, package management, and installer-ready distribution come from the same CLI.</p>
-    </article>
-    
-    <article class="manifest-card">
-      <p class="manifest-tag">Runtime</p>
-      <h3>Production-oriented</h3>
-      <p>Worker pool, bounded queue, runtime snapshots, compiled templates, and safer defaults are already part of the core.</p>
+    <article class="feature-card">
+      <p class="card-label">Shipping</p>
+      <h3>Deployment choices without framework drift</h3>
+      <p>Frontend-only sites can export static HTML, while full-stack apps still run with the full Wevoa backend.</p>
     </article>
     
   </div>
 </section>
 
-<section class="section-frame showcase-frame">
-  <div class="section-heading">
-    <p class="eyebrow">Built with Wevoa</p>
-    <h2>The official site is a Wevoa app too.</h2>
-    <p>This website uses Wevoa routes, layouts, view rendering, and static file serving so the product can demonstrate itself through a real project instead of only screenshots and promises.</p>
-  </div>
-
-  <div class="showcase-body">
-    <div class="visual-card">
-      <img src="/runtime-flow.svg" alt="Wevoa runtime flow diagram">
+<section class="section-frame split-panel">
+  <article class="content-card">
+    <p class="eyebrow">Deploy the right way</p>
+    <h2>Frontend-only sites can export static HTML. Full-stack apps still run on the full runtime.</h2>
+    <p>You do not have to force every project into the same deployment model. Wevoa supports a static export path for public-facing frontend sites and a full runtime path for apps that need live routes, sessions, or database work.</p>
+    <div class="mode-grid">
+      
+      <article class="mini-card">
+        <p class="card-label">Static</p>
+        <h3>Static export for frontend sites</h3>
+        <p>Use `wevoa build --static` when the site is mostly pages, docs, marketing, or download content. The output is plain HTML, CSS, assets, and files ready for static hosting.</p>
+      </article>
+      
+      <article class="mini-card">
+        <p class="card-label">Runtime</p>
+        <h3>Full runtime for dynamic apps</h3>
+        <p>Use `wevoa serve` when the app needs live route execution, sessions, database access, form handling, or request-time API calls.</p>
+      </article>
+      
     </div>
-    <article class="showcase-note">
-      <p class="card-label">Runtime diagram</p>
-      <h3>Request to HTML with one internal pipeline.</h3>
-      <p>The request enters the HTTP layer, flows through the interpreter and routes, renders through the template engine, and returns HTML or structured responses from the same runtime.</p>
-      <a class="button-link" href="/docs">Explore the docs</a>
-    </article>
-  </div>
+  </article>
+
+  <article class="visual-card">
+    <img src="/runtime-flow.svg" alt="Wevoa runtime flow diagram">
+  </article>
 </section>
+
+<section class="section-frame contributors-section">
+  <div class="section-heading contributors-heading">
+    <div class="contributors-heading-copy">
+      <p class="eyebrow">Contributors</p>
+      <h2>People building Wevoa in the open.</h2>
+      <p>The contributor board is rendered by Wevoa itself from GitHub data. The founder stays pinned at #1, and everyone else is ranked by repo commits.</p>
+    </div>
+
+    
+    <div class="contributors-summary">
+      <p class="summary-pill">Live GitHub data</p>
+      <p class="summary-pill">Founder pinned at #1</p>
+      <p class="summary-pill">Rendered by Wevoa</p>
+    </div>
+    
+  </div>
+
+  
+  <div class="contributors-overview">
+    <article class="contributor-spotlight">
+      <div class="contributor-spotlight-top">
+        <div class="contributor-spotlight-badges">
+          <p class="contributor-rank">#1</p>
+          <p class="contributor-role contributor-role-accent">Founder</p>
+        </div>
+        <p class="contributor-commits contributor-commits-accent">19 commits</p>
+      </div>
+
+      <div class="contributor-spotlight-body">
+        <img src="https://avatars.githubusercontent.com/u/139561652?v=4" alt="Abdul Ahad S avatar" class="contributor-spotlight-avatar">
+        <div class="contributor-spotlight-copy">
+          <h3>Abdul Ahad S</h3>
+          <p class="contributor-handle contributor-handle-strong">@AHADBAVA</p>
+          <p class="contributor-summary contributor-summary-strong">Pinned at the top of the official contributor board. Founder details are loaded through Wevoa, and everyone else is ranked below by repo commit count.</p>
+        </div>
+      </div>
+
+      <div class="contributor-spotlight-footer">
+        <p class="contributor-note">Fetched by Wevoa from the GitHub API</p>
+        <a class="button-link contributor-link" href="https://github.com/AHADBAVA">View GitHub profile</a>
+      </div>
+    </article>
+
+    <div class="contributors-sidepanel">
+      <div class="contributors-stats-grid">
+        <article class="contributors-stat-card">
+          <p class="contributors-stat-value">2</p>
+          <p class="contributors-stat-label">contributors ranked</p>
+        </article>
+        <article class="contributors-stat-card">
+          <p class="contributors-stat-value">20</p>
+          <p class="contributors-stat-label">public commits tracked</p>
+        </article>
+        <article class="contributors-stat-card">
+          <p class="contributors-stat-value">#1</p>
+          <p class="contributors-stat-label">founder always pinned</p>
+        </article>
+      </div>
+
+      
+      <div class="contributors-board">
+        
+        <article class="contributor-mini-card">
+          <div class="contributor-mini-head">
+            <div class="contributor-mini-identity">
+              <img src="https://avatars.githubusercontent.com/u/171639278?v=4" alt="Ahmad avatar" class="contributor-mini-avatar">
+              <div class="contributor-mini-copy">
+                <p class="contributor-mini-rank">#2</p>
+                <h3>Ahmad</h3>
+                <p class="contributor-handle">@ahmadshajhan</p>
+              </div>
+            </div>
+            <p class="contributor-commits">1 commit</p>
+          </div>
+
+          <p class="contributor-summary contributor-mini-summary">Ranked live from the Wevoa repository contributors list by public commit count.</p>
+
+          <div class="contributor-mini-footer">
+            <p class="contributor-role">Contributor</p>
+            <a class="button-link contributor-mini-link" href="https://github.com/ahmadshajhan">Profile</a>
+          </div>
+        </article>
+        
+      </div>
+      
+    </div>
+  </div>
+
+  <p class="contributors-footnote">Fetched by Wevoa from the GitHub API.</p>
+  
+</section>
+
 
   </main>
 <footer class="site-footer">
   <div class="footer-shell">
     <div class="footer-brand">
       <p class="footer-title">WevoaWeb</p>
-      <p class="footer-copy">Server-first language, runtime, and web framework built in modern C++.</p>
+      <p class="footer-copy">A server-first language, runtime, and web framework built in modern C++.</p>
     </div>
     <div class="footer-links">
       <a href="https://github.com/Wevoa/Wevoa">Source</a>
@@ -231,7 +278,7 @@ wevoa start</code></pre>
     </div>
     <div class="footer-meta">
       <p class="footer-version">Runtime v786.0.0</p>
-      <p class="footer-note">Official binaries only from GitHub Releases.</p>
+      <p class="footer-note">Built with Wevoa itself.</p>
     </div>
   </div>
 </footer>

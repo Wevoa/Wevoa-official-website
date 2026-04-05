@@ -3,15 +3,15 @@ extend "layout.wev"
 section content {
 <section class="page-intro">
   <p class="eyebrow">Documentation</p>
-  <h1>Get from install to running app quickly.</h1>
-  <p class="hero-lead">These are the core paths new developers need first: install the runtime, generate a starter, understand the request flow, and ship with the built-in production commands.</p>
+  <h1>Learn the platform without digging through noise.</h1>
+  <p class="hero-lead">Start with the official commands, understand how Wevoa pages are built, then move into the deeper language and architecture references when you need them.</p>
 </section>
 
-<section class="stack-list">
+<section class="feature-grid">
   {% for section in docs_sections %}
-  <article class="stack-card">
+  <article class="feature-card">
     <p class="card-label">{{ section.tag }}</p>
-    <h2>{{ section.title }}</h2>
+    <h3>{{ section.title }}</h3>
     <p>{{ section.intro }}</p>
     <ul class="detail-list">
       {% for point in section.points %}
@@ -24,22 +24,35 @@ section content {
 
 <section class="section-frame split-panel">
   <article class="content-card">
-    <h2>Core docs in this repository</h2>
-    <p>The public website is the front door. The deeper technical material already lives in the repository and should stay part of the official learning path.</p>
-    <ul class="detail-list">
-      <li><a href="{{ site.repo_url }}/blob/main/docs/quickstart.md">Quick Start</a></li>
-      <li><a href="{{ site.repo_url }}/blob/main/docs/framework-overview.md">Framework Overview</a></li>
-      <li><a href="{{ site.repo_url }}/blob/main/docs/language-reference.md">Language Reference</a></li>
-      <li><a href="{{ site.repo_url }}/blob/main/docs/internal-platform-reference.md">Internal Platform Reference</a></li>
-    </ul>
+    <p class="eyebrow">Core references</p>
+    <h2>The main docs that matter first.</h2>
+    <div class="link-stack">
+      {% for link in docs_links %}
+      <a class="doc-link-card" href="{{ link.href }}">
+        <strong>{{ link.title }}</strong>
+        <span>{{ link.text }}</span>
+      </a>
+      {% end %}
+    </div>
   </article>
 
-  <article class="content-card accent-card">
-    <h2>Start with the dashboard starter</h2>
-    <p>The official dashboard starter is the fastest way to experience packages, auth, templates, and CRUD flows together.</p>
-    <pre><code>wevoa create dashboard app
-cd app
-wevoa start</code></pre>
+  <article class="content-card">
+    <p class="eyebrow">Deployment models</p>
+    <h2>Choose the model that matches the site.</h2>
+    <div class="mode-grid">
+      {% for mode in deployment_modes %}
+      <article class="mini-card">
+        <p class="card-label">{{ mode.tag }}</p>
+        <h3>{{ mode.title }}</h3>
+        <p>{{ mode.text }}</p>
+        <ul class="detail-list">
+          {% for point in mode.points %}
+          <li>{{ point }}</li>
+          {% end %}
+        </ul>
+      </article>
+      {% end %}
+    </div>
   </article>
 </section>
 }

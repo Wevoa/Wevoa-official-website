@@ -1,0 +1,103 @@
+<section class="section-frame contributors-section">
+  <div class="section-heading contributors-heading">
+    <div class="contributors-heading-copy">
+      <p class="eyebrow">Contributors</p>
+      <h2>People building Wevoa in the open.</h2>
+      <p>The contributor board is rendered by Wevoa itself from GitHub data. The founder stays pinned at #1, and everyone else is ranked by repo commits.</p>
+    </div>
+
+    {% if len(contributors) > 0 %}
+    <div class="contributors-summary">
+      <p class="summary-pill">Live GitHub data</p>
+      <p class="summary-pill">Founder pinned at #1</p>
+      <p class="summary-pill">Rendered by Wevoa</p>
+    </div>
+    {% end %}
+  </div>
+
+  {% if len(contributors) > 0 %}
+  <div class="contributors-overview">
+    <article class="contributor-spotlight">
+      <div class="contributor-spotlight-top">
+        <div class="contributor-spotlight-badges">
+          <p class="contributor-rank">{{ featured_contributor.rank }}</p>
+          <p class="contributor-role contributor-role-accent">{{ featured_contributor.role }}</p>
+        </div>
+        <p class="contributor-commits contributor-commits-accent">{{ featured_contributor.commits_label }}</p>
+      </div>
+
+      <div class="contributor-spotlight-body">
+        <img src="{{ featured_contributor.avatar_url }}" alt="{{ featured_contributor.name }} avatar" class="contributor-spotlight-avatar">
+        <div class="contributor-spotlight-copy">
+          <h3>{{ featured_contributor.name }}</h3>
+          <p class="contributor-handle contributor-handle-strong">{{ featured_contributor.handle }}</p>
+          <p class="contributor-summary contributor-summary-strong">{{ featured_contributor.summary }}</p>
+        </div>
+      </div>
+
+      <div class="contributor-spotlight-footer">
+        <p class="contributor-note">{{ featured_contributor.contribution_note }}</p>
+        <a class="button-link contributor-link" href="{{ featured_contributor.profile_url }}">View GitHub profile</a>
+      </div>
+    </article>
+
+    <div class="contributors-sidepanel">
+      <div class="contributors-stats-grid">
+        <article class="contributors-stat-card">
+          <p class="contributors-stat-value">{{ contributor_count }}</p>
+          <p class="contributors-stat-label">contributors ranked</p>
+        </article>
+        <article class="contributors-stat-card">
+          <p class="contributors-stat-value">{{ contributor_commit_total }}</p>
+          <p class="contributors-stat-label">public commits tracked</p>
+        </article>
+        <article class="contributors-stat-card">
+          <p class="contributors-stat-value">#1</p>
+          <p class="contributors-stat-label">founder always pinned</p>
+        </article>
+      </div>
+
+      {% if len(contributor_roster) > 0 %}
+      <div class="contributors-board">
+        {% for contributor in contributor_roster %}
+        <article class="contributor-mini-card">
+          <div class="contributor-mini-head">
+            <div class="contributor-mini-identity">
+              <img src="{{ contributor.avatar_url }}" alt="{{ contributor.name }} avatar" class="contributor-mini-avatar">
+              <div class="contributor-mini-copy">
+                <p class="contributor-mini-rank">{{ contributor.rank }}</p>
+                <h3>{{ contributor.name }}</h3>
+                <p class="contributor-handle">{{ contributor.handle }}</p>
+              </div>
+            </div>
+            <p class="contributor-commits">{{ contributor.commits_label }}</p>
+          </div>
+
+          <p class="contributor-summary contributor-mini-summary">{{ contributor.summary }}</p>
+
+          <div class="contributor-mini-footer">
+            <p class="contributor-role">{{ contributor.role }}</p>
+            <a class="button-link contributor-mini-link" href="{{ contributor.profile_url }}">Profile</a>
+          </div>
+        </article>
+        {% end %}
+      </div>
+      {% else %}
+      <article class="content-card contributor-empty-card">
+        <p class="card-label">Growing board</p>
+        <h3>The contributor board is just getting started.</h3>
+        <p>As more people ship patches, fixes, and ideas into Wevoa, they will appear here automatically from the GitHub repository.</p>
+      </article>
+      {% end %}
+    </div>
+  </div>
+
+  <p class="contributors-footnote">Fetched by Wevoa from the GitHub API.</p>
+  {% else %}
+  <article class="content-card">
+    <p class="card-label">Live data unavailable</p>
+    <h3>Contributor data could not be loaded right now.</h3>
+    <p>Wevoa requests the official contributor board from GitHub on the server side. If GitHub is temporarily unavailable or rate limited, this section will recover automatically on the next request or the next static rebuild.</p>
+  </article>
+  {% end %}
+</section>

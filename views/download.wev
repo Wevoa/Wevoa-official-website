@@ -3,8 +3,8 @@ extend "layout.wev"
 section content {
 <section class="page-intro">
   <p class="eyebrow">Download</p>
-  <h1>Download WevoaWeb Runtime {{ site.version }}</h1>
-  <p class="hero-lead">Download the official Wevoa runtime directly from this website. Windows users can install with the GUI setup, and Linux users can download the runtime binary and start immediately.</p>
+  <h1>Get the official Wevoa runtime.</h1>
+  <p class="hero-lead">Download the current release directly from the official Wevoa website. Install globally on Windows, use the raw runtime in CI, or run the Linux binary directly in shell-based environments.</p>
   <div class="hero-actions">
     <a class="primary-button button-with-icon" href="{{ download_targets[0].href }}" download="{{ download_targets[0].download_name }}">
       <img src="{{ download_targets[0].icon }}" alt="Windows icon" class="button-icon">
@@ -17,21 +17,21 @@ section content {
   </div>
 </section>
 
-<section class="release-band">
-  <article class="release-chip">
+<section class="release-grid">
+  <article class="release-card">
     <p class="card-label">Current release</p>
     <h2>{{ site.version }}</h2>
-    <p>Stable official runtime release</p>
+    <p>Stable public runtime release.</p>
   </article>
-  <article class="release-chip">
-    <p class="card-label">Website delivery</p>
-    <h2>Direct download</h2>
-    <p>The website serves the current official release files directly from the Wevoa download path.</p>
+  <article class="release-card">
+    <p class="card-label">Official channel</p>
+    <h2>Website + GitHub Releases</h2>
+    <p>Official runtime assets are published through the Wevoa website and GitHub release flow.</p>
   </article>
-  <article class="release-chip">
+  <article class="release-card">
     <p class="card-label">Verification</p>
     <h2>SHA256SUMS.txt</h2>
-    <p>Use the published checksum file before install or redistribution.</p>
+    <p>Verify downloads before installation or redistribution.</p>
   </article>
 </section>
 
@@ -42,9 +42,8 @@ section content {
       <p class="card-label">{{ target.tag }}</p>
       <p class="content-meta">{{ target.platform }}</p>
     </div>
-    <h2>{{ target.version_label }}</h2>
-    <p class="download-artifact">{{ target.artifact }}</p>
-    <p class="content-meta">{{ target.artifact_type }}</p>
+    <h2>{{ target.artifact }}</h2>
+    <p class="download-artifact">{{ target.artifact_type }}</p>
     <p>{{ target.detail }}</p>
     <p class="download-support">{{ target.support }}</p>
     <a class="primary-button download-button button-with-icon" href="{{ target.href }}" download="{{ target.download_name }}">
@@ -55,30 +54,10 @@ section content {
   {% end %}
 </section>
 
-<section class="stack-list">
-  {% for file in release_files %}
-  <article class="stack-card">
-    <p class="card-label">{{ file.badge }}</p>
-    <h2>{{ file.name }}</h2>
-    <p class="content-meta">{{ file.type }}</p>
-    <p>{{ file.detail }}</p>
-    <a class="button-link" href="{{ file.href }}" download="{{ file.download_name }}">Direct asset link</a>
-  </article>
-  {% end %}
-
-  {% for item in install_methods %}
-  <article class="stack-card">
-    <p class="card-label">{{ item.tag }}</p>
-    <h2>{{ item.title }}</h2>
-    <p>{{ item.note }}</p>
-    <pre><code>{{ item.command }}</code></pre>
-  </article>
-  {% end %}
-</section>
-
 <section class="section-frame split-panel">
   <article class="content-card">
-    <h2>After download</h2>
+    <p class="eyebrow">After install</p>
+    <h2>Start a project immediately.</h2>
     <pre><code>wevoa --version
 wevoa create app my-site
 cd my-site
@@ -86,11 +65,32 @@ wevoa start</code></pre>
   </article>
 
   <article class="content-card">
-    <h2>Verify official assets</h2>
-    <p>Release verification matters. Use the published checksum file before installation or redistribution.</p>
+    <p class="eyebrow">Verify assets</p>
+    <h2>Check the release hashes before install.</h2>
     <pre><code>Get-FileHash .\WevoaSetup.exe -Algorithm SHA256
 Get-FileHash .\wevoa.exe -Algorithm SHA256
 sha256sum ./wevoa</code></pre>
   </article>
+</section>
+
+<section class="feature-grid">
+  {% for file in release_files %}
+  <article class="feature-card">
+    <p class="card-label">{{ file.badge }}</p>
+    <h3>{{ file.name }}</h3>
+    <p class="content-meta">{{ file.type }}</p>
+    <p>{{ file.detail }}</p>
+    <a class="button-link" href="{{ file.href }}" download="{{ file.download_name }}">Direct asset link</a>
+  </article>
+  {% end %}
+
+  {% for item in install_methods %}
+  <article class="feature-card">
+    <p class="card-label">{{ item.tag }}</p>
+    <h3>{{ item.title }}</h3>
+    <p>{{ item.note }}</p>
+    <pre><code>{{ item.command }}</code></pre>
+  </article>
+  {% end %}
 </section>
 }

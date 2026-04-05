@@ -3,15 +3,15 @@ extend "layout.wev"
 section content {
 <section class="page-intro">
   <p class="eyebrow">Ecosystem</p>
-  <h1>A framework is stronger when the surrounding platform is coherent.</h1>
-  <p class="hero-lead">Wevoa's ecosystem is intentionally focused: official starter packs, official packages, installer-first distribution, and documentation that matches the actual runtime.</p>
+  <h1>The platform around the runtime matters too.</h1>
+  <p class="hero-lead">Wevoa is more than syntax and routing. The official packages, starter packs, download flow, and deployment choices are part of what makes the platform usable.</p>
 </section>
 
-<section class="stack-list">
+<section class="feature-grid">
   {% for track in ecosystem_tracks %}
-  <article class="stack-card">
+  <article class="feature-card">
     <p class="card-label">{{ track.tag }}</p>
-    <h2>{{ track.title }}</h2>
+    <h3>{{ track.title }}</h3>
     <p>{{ track.text }}</p>
     <ul class="detail-list">
       {% for item in track.items %}
@@ -23,13 +23,17 @@ section content {
 </section>
 
 <section class="section-frame split-panel">
-  <article class="content-card accent-card">
-    <h2>Official packages</h2>
-    <p>@auth, @db, and @utils give projects a solid baseline without forcing a huge dependency tree.</p>
+  {% for mode in deployment_modes %}
+  <article class="content-card">
+    <p class="eyebrow">{{ mode.tag }}</p>
+    <h2>{{ mode.title }}</h2>
+    <p>{{ mode.text }}</p>
+    <ul class="detail-list">
+      {% for point in mode.points %}
+      <li>{{ point }}</li>
+      {% end %}
+    </ul>
   </article>
-  <article class="content-card accent-card">
-    <h2>Official starters</h2>
-    <p>The built-in `app` and `dashboard` starters replace scattered demos with a cleaner onboarding path.</p>
-  </article>
+  {% end %}
 </section>
 }

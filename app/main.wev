@@ -1,7 +1,7 @@
 const site = {
   name: "WevoaWeb",
   title: "WevoaWeb Official Website",
-  tagline: "Server-first language, runtime, and web framework built in modern C++.",
+  tagline: "A server-first language, runtime, and web framework built in modern C++.",
   version: "786.0.0",
   release_tag: "v786.0.0",
   repo_url: "https://github.com/Wevoa/Wevoa",
@@ -20,23 +20,23 @@ const navigation = [
 ]
 
 const platform_stats = [
-  { value: "1", label: "Single runtime", stamp: "System", text: "Language, CLI, HTTP server, templates, and build flow ship together." },
-  { value: "786", label: "Default port", stamp: "Local", text: "A recognizable local development port that works across starters and docs." },
-  { value: "0 JS", label: "Required by default", stamp: "Core", text: "The normal request cycle stays server-rendered and HTML-first." }
+  { value: "1", label: "single binary", stamp: "Runtime", text: "Language, templates, routing, CLI, and build flow ship together." },
+  { value: "2", label: "deployment paths", stamp: "Shipping", text: "Export static sites or run the full Wevoa runtime for dynamic apps." },
+  { value: "0 JS", label: "required by default", stamp: "Model", text: "The primary path stays HTML-first and server-rendered." }
 ]
 
 const home_capabilities = [
-  { title: "Language + runtime", tag: "Execution", text: "Custom syntax, closures, imports, arrays, objects, template blocks, and route execution live in one binary." },
-  { title: "Full web stack", tag: "Framework", text: "Routing, sessions, CSRF, JSON helpers, multipart uploads, static assets, and SQLite are built into the platform." },
-  { title: "Developer tooling", tag: "CLI", text: "Project creation, doctor, build, serve, package management, and installer-ready distribution come from the same CLI." },
-  { title: "Production-oriented", tag: "Runtime", text: "Worker pool, bounded queue, runtime snapshots, compiled templates, and safer defaults are already part of the core." }
+  { title: "Language and runtime together", tag: "Core", text: "Wevoa is designed as one system, so templates, routes, values, imports, and execution semantics fit together cleanly." },
+  { title: "Full web stack built in", tag: "Framework", text: "Routing, sessions, CSRF, uploads, JSON helpers, static assets, and SQLite are already part of the runtime." },
+  { title: "CLI that ships the platform", tag: "Tooling", text: "Create, doctor, build, serve, package, and install flows all come from the same binary and the same product surface." },
+  { title: "Deployment choices without framework drift", tag: "Shipping", text: "Frontend-only sites can export static HTML, while full-stack apps still run with the full Wevoa backend." }
 ]
 
 const docs_sections = [
   {
-    title: "Get started",
+    title: "Install and start fast",
     tag: "01",
-    intro: "Use the installer or runtime binary, then create and run a starter project immediately.",
+    intro: "Get a working project running in minutes with the official runtime and starter packs.",
     points: [
       "wevoa --version",
       "wevoa create dashboard app",
@@ -45,9 +45,9 @@ const docs_sections = [
     ]
   },
   {
-    title: "Build pages with Wevoa",
+    title: "Build HTML-first pages",
     tag: "02",
-    intro: "Each request runs through routes, templates, and structured helpers without requiring frontend JavaScript.",
+    intro: "Routes, templates, and helpers stay readable because the framework is built around server-rendered HTML first.",
     points: [
       "route \"/\" { return view(\"home.wev\", data) }",
       "{{ expression }} interpolation",
@@ -56,16 +56,46 @@ const docs_sections = [
     ]
   },
   {
-    title: "Ship safely",
+    title: "Choose the right deployment model",
     tag: "03",
-    intro: "Production support is part of the runtime, not bolted on in another tool.",
+    intro: "Wevoa supports both static-site output and full runtime hosting, depending on what the app actually needs.",
     points: [
-      "wevoa build",
+      "wevoa build --static",
       "wevoa serve",
       "wevoa doctor",
       "SHA256 release verification"
     ]
   }
+]
+
+const deployment_modes = [
+  {
+    title: "Static export for frontend sites",
+    tag: "Static",
+    text: "Use `wevoa build --static` when the site is mostly pages, docs, marketing, or download content. The output is plain HTML, CSS, assets, and files ready for static hosting.",
+    points: [
+      "Great for docs, product pages, and landing sites",
+      "Deployable to Vercel and other static hosts",
+      "Live data is captured at build time"
+    ]
+  },
+  {
+    title: "Full runtime for dynamic apps",
+    tag: "Runtime",
+    text: "Use `wevoa serve` when the app needs live route execution, sessions, database access, form handling, or request-time API calls.",
+    points: [
+      "Best for dashboards, internal tools, and products",
+      "Keeps Wevoa routing and server helpers active",
+      "Deploy on a VPS or normal server environment"
+    ]
+  }
+]
+
+const docs_links = [
+  { title: "Quick Start", href: site.repo_url + "/blob/main/docs/quickstart.md", text: "Install the runtime, create a starter, and run your first app." },
+  { title: "Framework Overview", href: site.repo_url + "/blob/main/docs/framework-overview.md", text: "Understand what Wevoa is, how it fits together, and where it is heading." },
+  { title: "Language Reference", href: site.repo_url + "/blob/main/docs/language-reference.md", text: "Learn the syntax, expressions, built-ins, and runtime rules." },
+  { title: "Platform Reference", href: site.repo_url + "/blob/main/docs/internal-platform-reference.md", text: "Go deeper into the system architecture, runtime, and build pipeline." }
 ]
 
 const download_targets = [
@@ -142,7 +172,7 @@ const ecosystem_tracks = [
   {
     title: "Official packages",
     tag: "Packages",
-    text: "Core packages such as @auth, @db, and @utils give projects a reliable starting point without making the framework feel bloated.",
+    text: "Core packages such as @auth, @db, and @utils give projects a real starting point without turning the framework into a dependency maze.",
     items: [
       "@auth for session-backed authentication",
       "@db for database helpers and query wrappers",
@@ -152,7 +182,7 @@ const ecosystem_tracks = [
   {
     title: "Starter packs",
     tag: "Starters",
-    text: "Wevoa ships with focused built-in starters instead of a cluttered example zoo.",
+    text: "Wevoa ships with focused built-in starters instead of a cluttered example collection.",
     items: [
       "app for a minimal production-grade starting point",
       "dashboard for an auth + CRUD starter built with official packages"
@@ -161,19 +191,19 @@ const ecosystem_tracks = [
   {
     title: "Product ecosystem",
     tag: "Platform",
-    text: "The runtime, installer, packages, docs, and starters are designed to feel like one platform instead of separate tooling islands.",
+    text: "The runtime, installer, packages, docs, starters, and download flow are designed to feel like one platform instead of separate tooling islands.",
     items: [
       "Single-binary runtime distribution",
       "Installer-first onboarding on Windows",
-      "Package discovery and official registry flow"
+      "Static export and runtime hosting paths"
     ]
   }
 ]
 
 const about_values = [
-  { title: "Server-first by default", tag: "Philosophy", text: "The normal path favors HTML, routes, and predictable request handling instead of pushing every app toward client-heavy complexity." },
-  { title: "Framework and language together", tag: "Identity", text: "Wevoa is not only a framework. It is a language, runtime, CLI, and web platform designed to feel coherent end to end." },
-  { title: "Small surface, real capability", tag: "Direction", text: "The goal is not to mimic every existing stack. The goal is to provide a simpler stack that still handles real production needs." }
+  { title: "Server-first by default", tag: "Philosophy", text: "The default path favors HTML, routes, and predictable request handling instead of pushing every project into a client-heavy architecture." },
+  { title: "One product surface", tag: "Identity", text: "Wevoa is a language, runtime, framework, CLI, and distribution story designed to feel coherent from install to deployment." },
+  { title: "Small surface, real capability", tag: "Direction", text: "The goal is not to imitate every existing stack. The goal is to provide a simpler stack that still handles real product needs." }
 ]
 
 const founder_login = "AHADBAVA"
@@ -200,10 +230,26 @@ func commit_label(commits) {
   return commits + " commits"
 }
 
-func contributor_card(display_name, profile, role, rank, commits, summary, note) {
+func contributor_profile(repo_contributor) {
+  let profile = github_user(repo_contributor.login)
+  if (profile.login) {
+    return profile
+  }
+  return repo_contributor
+}
+
+func contributor_display_name(profile, fallback_login) {
+  if (profile.name) {
+    return profile.name
+  }
+  return fallback_login
+}
+
+func contributor_card(display_name, profile, login, role, rank, commits, summary, note) {
   return {
     name: display_name,
-    handle: "@" + profile.login,
+    login: login,
+    handle: "@" + login,
     role: role,
     rank: "#" + rank,
     commits: commits,
@@ -217,7 +263,6 @@ func contributor_card(display_name, profile, role, rank, commits, summary, note)
 
 func github_contributors() {
   let response = http.get("https://api.github.com/repos/Wevoa/Wevoa/contributors", github_headers())
-  let founder_profile = github_user(founder_login)
 
   if (!response.ok || !response.json_valid) {
     return []
@@ -241,22 +286,11 @@ func github_contributors() {
     index = index + 1
   }
 
-  let founder_source = founder_profile
-  if (!founder_source.login && founder_repo.login) {
-    founder_source = founder_repo
-  }
+  if (founder_repo.login) {
+    let founder_source = contributor_profile(founder_repo)
+    let founder_name = contributor_display_name(founder_source, founder_repo.login)
 
-  if (founder_source.login) {
-    let founder_commits = 0
-    let founder_name = founder_source.login
-    if (founder_repo.login) {
-      founder_commits = founder_repo.contributions
-    }
-    if (founder_profile.login && founder_profile.name) {
-      founder_name = founder_profile.name
-    }
-
-    contributors = append(contributors, contributor_card(founder_name, founder_source, "Founder", 1, founder_commits, "Pinned at the top of the official contributor board. Founder details are loaded through Wevoa, and everyone else is ranked below by repo commit count.", "Fetched by Wevoa from the GitHub API"))
+    contributors = append(contributors, contributor_card(founder_name, founder_source, founder_repo.login, "Founder", 1, founder_repo.contributions, "Pinned at the top of the official contributor board. Founder details are loaded through Wevoa, and everyone else is ranked below by repo commit count.", "Fetched by Wevoa from the GitHub API"))
   }
 
   let other_index = 0
@@ -264,8 +298,10 @@ func github_contributors() {
 
   while (other_index < len(others)) {
     let contributor = others[other_index]
+    let contributor_source = contributor_profile(contributor)
+    let contributor_name = contributor_display_name(contributor_source, contributor.login)
 
-    contributors = append(contributors, contributor_card(contributor.login, contributor, "Contributor", rank, contributor.contributions, "Ranked live from the Wevoa repository contributors list by public commit count.", "Fetched by Wevoa from github.com/Wevoa/Wevoa"))
+    contributors = append(contributors, contributor_card(contributor_name, contributor_source, contributor.login, "Contributor", rank, contributor.contributions, "Ranked live from the Wevoa repository contributors list by public commit count.", "Fetched by Wevoa from github.com/Wevoa/Wevoa"))
 
     rank = rank + 1
     other_index = other_index + 1
@@ -274,7 +310,43 @@ func github_contributors() {
   return contributors
 }
 
+func contributor_featured(contributors) {
+  if (len(contributors) > 0) {
+    return contributors[0]
+  }
+  return {}
+}
+
+func contributor_roster(contributors) {
+  let roster = []
+  let index = 1
+
+  while (index < len(contributors)) {
+    roster = append(roster, contributors[index])
+    index = index + 1
+  }
+
+  return roster
+}
+
+func contributor_count(contributors) {
+  return len(contributors)
+}
+
+func contributor_commit_total(contributors) {
+  let total = 0
+  let index = 0
+
+  while (index < len(contributors)) {
+    total = total + contributors[index].commits
+    index = index + 1
+  }
+
+  return total
+}
+
 route "/" {
+let contributors = github_contributors()
 return view("home.wev", {
   title: "WevoaWeb | Official Website",
   description: "The official home of WevoaWeb, a server-first language, runtime, and web framework built in modern C++.",
@@ -283,7 +355,11 @@ return view("home.wev", {
   current_path: request.path,
   platform_stats: platform_stats,
   capabilities: home_capabilities,
-  contributors: github_contributors()
+  contributors: contributors,
+  featured_contributor: contributor_featured(contributors),
+  contributor_roster: contributor_roster(contributors),
+  contributor_count: contributor_count(contributors),
+  contributor_commit_total: contributor_commit_total(contributors)
 })
 }
 
@@ -294,7 +370,9 @@ return view("docs.wev", {
   site: site,
   navigation: navigation,
   current_path: request.path,
-  docs_sections: docs_sections
+  docs_sections: docs_sections,
+  docs_links: docs_links,
+  deployment_modes: deployment_modes
 })
 }
 
@@ -318,7 +396,8 @@ return view("ecosystem.wev", {
   site: site,
   navigation: navigation,
   current_path: request.path,
-  ecosystem_tracks: ecosystem_tracks
+  ecosystem_tracks: ecosystem_tracks,
+  deployment_modes: deployment_modes
 })
 }
 

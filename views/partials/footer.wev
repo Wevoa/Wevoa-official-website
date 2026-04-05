@@ -12,7 +12,7 @@
     </div>
     <div class="footer-meta">
       <p class="footer-version">Runtime v{{ site.version }}</p>
-      <p class="footer-note">Official binaries only from GitHub Releases.</p>
+      <p class="footer-note">Built with Wevoa itself.</p>
     </div>
   </div>
 </footer>

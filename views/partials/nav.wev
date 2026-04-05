@@ -16,6 +16,6 @@
       {% end %}
     </nav>
 
-    <a class="header-cta" href="{{ site.release_url }}">Official Releases</a>
+    <a class="header-cta" href="{{ site.repo_url }}">GitHub</a>
   </div>
 </header>
