@@ -49,4 +49,4 @@ Vercel deployment:
 vercel
 ```
 
-This repo includes `vercel.json`, which builds the site with the bundled Linux Wevoa runtime and deploys the static output directory.
+This repo includes `vercel.json`, which deploys the committed `site/` directory directly on Vercel. To refresh the deployed output after content changes, rebuild with `wevoa build --static` and sync `build/static` into `site/`.

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WevoaWeb | Documentation</title>
+  <meta name="description" content="Start with WevoaWeb quickly and understand the platform from CLI to runtime.">
+  <link rel="icon" type="image/png" href="/Web.png">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-shell">
+    <a class="brand-mark" href="/">
+      <img src="/Web.png" alt="WevoaWeb logo">
+      <div class="brand-copy">
+        <strong>WevoaWeb</strong>
+        <span>Runtime v786.0.0</span>
+      </div>
+    </a>
+
+    <nav class="top-nav">
+      
+      <a href="/" class="nav-link">
+        Home
+      </a>
+      
+      <a href="/docs" class="nav-link nav-link-active">
+        Docs
+      </a>
+      
+      <a href="/download" class="nav-link">
+        Download
+      </a>
+      
+      <a href="/ecosystem" class="nav-link">
+        Ecosystem
+      </a>
+      
+      <a href="/about" class="nav-link">
+        About
+      </a>
+      
+    </nav>
+
+    <a class="header-cta" href="https://github.com/Wevoa/Wevoa/releases">Official Releases</a>
+  </div>
+</header>
+
+  <main class="page-shell">
+    <section class="page-intro">
+  <p class="eyebrow">Documentation</p>
+  <h1>Get from install to running app quickly.</h1>
+  <p class="hero-lead">These are the core paths new developers need first: install the runtime, generate a starter, understand the request flow, and ship with the built-in production commands.</p>
+</section>
+
+<section class="stack-list">
+  
+  <article class="stack-card">
+    <p class="card-label">01</p>
+    <h2>Get started</h2>
+    <p>Use the installer or runtime binary, then create and run a starter project immediately.</p>
+    <ul class="detail-list">
+      
+      <li>wevoa --version</li>
+      
+      <li>wevoa create dashboard app</li>
+      
+      <li>cd app</li>
+      
+      <li>wevoa start</li>
+      
+    </ul>
+  </article>
+  
+  <article class="stack-card">
+    <p class="card-label">02</p>
+    <h2>Build pages with Wevoa</h2>
+    <p>Each request runs through routes, templates, and structured helpers without requiring frontend JavaScript.</p>
+    <ul class="detail-list">
+      
+      <li>route &quot;/&quot; { return view(&quot;home.wev&quot;, data) }</li>
+      
+      <li>{{ expression }} interpolation</li>
+      
+      <li>extend, section, include, and component support</li>
+      
+      <li>request, session, params, and json() helpers</li>
+      
+    </ul>
+  </article>
+  
+  <article class="stack-card">
+    <p class="card-label">03</p>
+    <h2>Ship safely</h2>
+    <p>Production support is part of the runtime, not bolted on in another tool.</p>
+    <ul class="detail-list">
+      
+      <li>wevoa build</li>
+      
+      <li>wevoa serve</li>
+      
+      <li>wevoa doctor</li>
+      
+      <li>SHA256 release verification</li>
+      
+    </ul>
+  </article>
+  
+</section>
+
+<section class="section-frame split-panel">
+  <article class="content-card">
+    <h2>Core docs in this repository</h2>
+    <p>The public website is the front door. The deeper technical material already lives in the repository and should stay part of the official learning path.</p>
+    <ul class="detail-list">
+      <li><a href="https://github.com/Wevoa/Wevoa/blob/main/docs/quickstart.md">Quick Start</a></li>
+      <li><a href="https://github.com/Wevoa/Wevoa/blob/main/docs/framework-overview.md">Framework Overview</a></li>
+      <li><a href="https://github.com/Wevoa/Wevoa/blob/main/docs/language-reference.md">Language Reference</a></li>
+      <li><a href="https://github.com/Wevoa/Wevoa/blob/main/docs/internal-platform-reference.md">Internal Platform Reference</a></li>
+    </ul>
+  </article>
+
+  <article class="content-card accent-card">
+    <h2>Start with the dashboard starter</h2>
+    <p>The official dashboard starter is the fastest way to experience packages, auth, templates, and CRUD flows together.</p>
+    <pre><code>wevoa create dashboard app
+cd app
+wevoa start</code></pre>
+  </article>
+</section>
+
+  </main>
+<footer class="site-footer">
+  <div class="footer-shell">
+    <div class="footer-brand">
+      <p class="footer-title">WevoaWeb</p>
+      <p class="footer-copy">Server-first language, runtime, and web framework built in modern C++.</p>
+    </div>
+    <div class="footer-links">
+      <a href="https://github.com/Wevoa/Wevoa">Source</a>
+      <a href="https://github.com/Wevoa/Wevoa/releases">Releases</a>
+      <a href="/docs">Docs</a>
+      <a href="/download">Download</a>
+    </div>
+    <div class="footer-meta">
+      <p class="footer-version">Runtime v786.0.0</p>
+      <p class="footer-note">Official binaries only from GitHub Releases.</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
