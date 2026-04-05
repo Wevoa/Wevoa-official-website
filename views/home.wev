@@ -57,36 +57,33 @@ wevoa start</code></pre>
   <div class="section-heading">
     <p class="eyebrow">Contributors</p>
     <h2>People shaping Wevoa in the open</h2>
-    <p>The official site is rendered by Wevoa itself, and this contributor board is fetched live from GitHub on the server side with no client-side JavaScript. The founder stays pinned at #1, and the rest are ranked dynamically by repo commits.</p>
+    <p>This site can run as a Wevoa app or as a static export. Contributor data is fetched live from GitHub in the browser so the exported frontend can stay current on hosts like Vercel, while the founder stays pinned at #1.</p>
   </div>
 
-  {% if len(contributors) > 0 %}
-  <div class="contributors-grid">
-    {% for contributor in contributors %}
-    <article class="contributor-card">
-      <img src="{{ contributor.avatar_url }}" alt="{{ contributor.name }} avatar" class="contributor-avatar">
+  <div class="contributors-grid" id="contributors-board" data-founder="AHADBAVA" data-repo="Wevoa/Wevoa">
+    <article class="contributor-card contributor-card-loading">
+      <div class="contributor-avatar contributor-avatar-placeholder"></div>
       <div class="contributor-copy">
         <div class="contributor-meta">
-          <p class="card-label">{{ contributor.role }}</p>
-          <p class="contributor-rank">{{ contributor.rank }}</p>
+          <p class="card-label">Live ranking</p>
+          <p class="contributor-rank">Loading</p>
         </div>
-        <h3>{{ contributor.name }}</h3>
-        <p class="contributor-handle">{{ contributor.handle }}</p>
-        <p class="contributor-commits">{{ contributor.commits_label }}</p>
-        <p>{{ contributor.summary }}</p>
-        <p class="contributor-note">{{ contributor.contribution_note }}</p>
-        <a class="button-link" href="{{ contributor.profile_url }}">View GitHub profile</a>
+        <h3>Fetching contributors...</h3>
+        <p class="contributor-handle">@github</p>
+        <p class="contributor-commits">Preparing live ranking</p>
+        <p>The exported site is requesting the official contributor board directly from GitHub.</p>
+        <p class="contributor-note">Static-site friendly live data flow</p>
       </div>
     </article>
-    {% end %}
   </div>
-  {% else %}
-  <div class="content-card">
-    <p class="card-label">Live data unavailable</p>
-    <h3>Contributor data could not be loaded right now.</h3>
-    <p>The site is trying to fetch the official Wevoa contributor list live from GitHub. If GitHub is temporarily unavailable or rate limited, this section will recover automatically on the next request.</p>
-  </div>
-  {% end %}
+  <noscript>
+    <div class="content-card">
+      <p class="card-label">JavaScript required</p>
+      <h3>Live contributor ranking needs a browser fetch.</h3>
+      <p>This static-friendly contributor board loads from the GitHub API in the browser. Enable JavaScript to see the live ranking.</p>
+    </div>
+  </noscript>
+  <script src="/contributors-live.js" defer></script>
 </section>
 
 <section class="section-frame">

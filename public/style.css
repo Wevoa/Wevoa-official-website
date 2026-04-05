@@ -671,6 +671,16 @@ pre {
   background: var(--panel-strong);
 }
 
+.contributor-avatar-placeholder {
+  background:
+    linear-gradient(135deg, rgba(31, 125, 71, 0.16), rgba(31, 125, 71, 0.04)),
+    var(--panel-strong);
+}
+
+.contributor-card-loading {
+  opacity: 0.94;
+}
+
 .site-footer {
   padding-bottom: 34px;
 }

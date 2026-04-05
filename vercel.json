@@ -1,0 +1,4 @@
+{
+  "buildCommand": "chmod +x ./public/downloads/wevoa && ./public/downloads/wevoa build --static",
+  "outputDirectory": "build/static"
+}
