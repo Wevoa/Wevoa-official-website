@@ -39,6 +39,10 @@ The static site is written to:
 build/static
 ```
 
+Static export note:
+
+The static export uses Wevoa to render pages at build time. If a page fetches live data from GitHub, that data is captured during the build and stays fixed until the next rebuild/deploy.
+
 Vercel deployment:
 
 ```text

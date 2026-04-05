@@ -176,6 +176,104 @@ const about_values = [
   { title: "Small surface, real capability", tag: "Direction", text: "The goal is not to mimic every existing stack. The goal is to provide a simpler stack that still handles real production needs." }
 ]
 
+const founder_login = "AHADBAVA"
+
+func github_headers() {
+  return {
+    "Accept": "application/vnd.github+json",
+    "User-Agent": site.name + "/" + site.version
+  }
+}
+
+func github_user(login) {
+  let response = http.get("https://api.github.com/users/" + login, github_headers())
+  if (!response.ok || !response.json_valid) {
+    return {}
+  }
+  return response.json()
+}
+
+func commit_label(commits) {
+  if (commits == 1) {
+    return commits + " commit"
+  }
+  return commits + " commits"
+}
+
+func contributor_card(display_name, profile, role, rank, commits, summary, note) {
+  return {
+    name: display_name,
+    handle: "@" + profile.login,
+    role: role,
+    rank: "#" + rank,
+    commits: commits,
+    commits_label: commit_label(commits),
+    summary: summary,
+    profile_url: profile.html_url,
+    avatar_url: profile.avatar_url,
+    contribution_note: note
+  }
+}
+
+func github_contributors() {
+  let response = http.get("https://api.github.com/repos/Wevoa/Wevoa/contributors", github_headers())
+  let founder_profile = github_user(founder_login)
+
+  if (!response.ok || !response.json_valid) {
+    return []
+  }
+
+  let payload = response.json()
+  let contributors = []
+  let others = []
+  let founder_repo = {}
+  let index = 0
+
+  while (index < len(payload)) {
+    let contributor = payload[index]
+
+    if (contributor.login == founder_login) {
+      founder_repo = contributor
+    } else {
+      others = append(others, contributor)
+    }
+
+    index = index + 1
+  }
+
+  let founder_source = founder_profile
+  if (!founder_source.login && founder_repo.login) {
+    founder_source = founder_repo
+  }
+
+  if (founder_source.login) {
+    let founder_commits = 0
+    let founder_name = founder_source.login
+    if (founder_repo.login) {
+      founder_commits = founder_repo.contributions
+    }
+    if (founder_profile.login && founder_profile.name) {
+      founder_name = founder_profile.name
+    }
+
+    contributors = append(contributors, contributor_card(founder_name, founder_source, "Founder", 1, founder_commits, "Pinned at the top of the official contributor board. Founder details are loaded through Wevoa, and everyone else is ranked below by repo commit count.", "Fetched by Wevoa from the GitHub API"))
+  }
+
+  let other_index = 0
+  let rank = 2
+
+  while (other_index < len(others)) {
+    let contributor = others[other_index]
+
+    contributors = append(contributors, contributor_card(contributor.login, contributor, "Contributor", rank, contributor.contributions, "Ranked live from the Wevoa repository contributors list by public commit count.", "Fetched by Wevoa from github.com/Wevoa/Wevoa"))
+
+    rank = rank + 1
+    other_index = other_index + 1
+  }
+
+  return contributors
+}
+
 route "/" {
 return view("home.wev", {
   title: "WevoaWeb | Official Website",
@@ -184,7 +282,8 @@ return view("home.wev", {
   navigation: navigation,
   current_path: request.path,
   platform_stats: platform_stats,
-  capabilities: home_capabilities
+  capabilities: home_capabilities,
+  contributors: github_contributors()
 })
 }
 
